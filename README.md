@@ -14,6 +14,7 @@
 - [Base de datos](#base-de-datos)
 - [Instalación y configuración](#instalación-y-configuración)
 - [Variables de entorno](#variables-de-entorno)
+- [Despliegue en Vercel](#despliegue-en-vercel)
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Roles de usuario](#roles-de-usuario)
 - [Spec principal](#spec-principal)
@@ -273,6 +274,50 @@ VITE_SUPABASE_ANON_KEY=eyJ...tu_anon_key
 ```
 
 > ⚠️ **Nunca subas el archivo `.env` a Git.** Ya está incluido en `.gitignore`.
+
+---
+
+## Despliegue en Vercel
+
+La app React vive en la subcarpeta `taller-don-ramiro-react/`. El repo incluye un `vercel.json` en la raíz que ya apunta a esa carpeta, así que podés desplegar sin cambiar la configuración de build.
+
+### Opción recomendada: configurar el Root Directory
+
+En Vercel → **Project Settings → General → Root Directory**, poné:
+
+```
+taller-don-ramiro-react
+```
+
+Y verificá en **Build & Development Settings**:
+
+| Campo | Valor |
+|-------|-------|
+| Framework Preset | Vite |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | `npm install` |
+
+### Opción alternativa: desplegar desde la raíz
+
+Dejá el **Root Directory** vacío. El `vercel.json` de la raíz se encarga de instalar, construir y publicar `taller-don-ramiro-react/dist`.
+
+### Variables de entorno obligatorias
+
+En Vercel → **Project Settings → Environment Variables**, agregá para **Production**, **Preview** y **Development**:
+
+```env
+VITE_SUPABASE_URL=https://tu-proyecto.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJ...tu_anon_key
+```
+
+> Sin estas variables el build puede completarse, pero la app queda en blanco porque `createClient()` no recibe la URL ni la clave.
+
+### Redeploy
+
+Después de cambiar el Root Directory o las variables, andá a **Deployments → ⋯ → Redeploy** y desmarcá **Use existing Build Cache**.
+
+Si sigue sin cargar, revisá en **Deployments → Build Logs** que el build termine con `✓ built in ...` y que el directorio publicado sea `dist`.
 
 ---
 

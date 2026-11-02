@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm install --prefix taller-don-ramiro-react",
+  "buildCommand": "npm --prefix taller-don-ramiro-react run build",
+  "outputDirectory": "taller-don-ramiro-react/dist",
+  "framework": null
+}
