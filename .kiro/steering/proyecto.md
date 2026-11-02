@@ -70,6 +70,15 @@ taller-don-ramiro-react/
 - **Administrador (Don Ramiro):** registra autos, gestiona mecánicos, envía links por WhatsApp
 - **Cliente:** recibe un link único (sin contraseña), ve el estado de su auto y aprueba/rechaza cotizaciones
 
+## Specs y documentación
+- **SPEC-001 — Aprobación de cotizaciones:** `.kiro/specs/aprobacion-cotizaciones.md` (feature implementado, CA-1 a CA-5).
+- **SPEC-002 — Seguimiento y recordatorio automático de cotizaciones:** `.kiro/specs/seguimiento-cotizaciones.md` (propuesta). Agrega `viewed_at`, vencimiento (`expires_at`), recordatorios por WhatsApp (30 min, 2 h, 12 h), tabla `quote_events`, panel de seguimiento, reenvío manual, reapertura y modo degradado sin proveedor. Incluye CA-1 a CA-13 y métricas de éxito.
+- **Paso 1 — ICP y User Persona:** `docs/paso-1-icp-user-persona.md` y `docs/Paso-1-ICP-User-Persona.docx`.
+- **Paso 2 — SPEC en Word/PDF:** `docs/Paso-2-SPEC-Seguimiento-Cotizaciones.docx` y `.pdf`.
+
+### Cambios de datos propuestos por SPEC-002
+La tabla `quotes` suma `sent_at`, `cycle_started_at`, `viewed_at`, `expires_at`, `reminder_count`, `last_reminder_at`, `reminders_enabled`, `expired_at` y `resolved_at`; el estado `expired` se agrega a los valores válidos. Se agrega `quote_events` (append-only) para auditar creación, vista, recordatorios, aprobación/rechazo, vencimiento y reapertura.
+
 ## Convenciones de código
 - Componentes en PascalCase, archivos `.jsx`
 - Hooks y utilidades en camelCase, archivos `.js`

@@ -17,6 +17,7 @@
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Roles de usuario](#roles-de-usuario)
 - [Spec principal](#spec-principal)
+- [Documentación y specs](#documentación-y-specs)
 - [Scripts disponibles](#scripts-disponibles)
 
 ---
@@ -285,7 +286,14 @@ taller-don-ramiro/
 │   ├── skills/
 │   │   └── brand-design.md      ← Guía de diseño de marca
 │   └── specs/
-│       └── aprobacion-cotizaciones.md  ← Spec del feature principal
+│       ├── aprobacion-cotizaciones.md      ← Spec del feature principal
+│       └── seguimiento-cotizaciones.md     ← SPEC-002: seguimiento y recordatorios
+├── docs/
+│   ├── paso-1-icp-user-persona.md          ← Fuente del Paso 1
+│   ├── Paso-1-ICP-User-Persona.docx        ← Entregable Word del Paso 1
+│   ├── Paso-1-ICP-User-Persona.pdf         ← Vista previa del Paso 1
+│   ├── Paso-2-SPEC-Seguimiento-Cotizaciones.docx  ← Entregable Word del Paso 2
+│   └── Paso-2-SPEC-Seguimiento-Cotizaciones.pdf   ← Vista previa del Paso 2
 ├── src/
 │   ├── store/
 │   │   ├── supabase.js          ← Cliente Supabase
@@ -345,6 +353,30 @@ La especificación completa está en `.kiro/specs/aprobacion-cotizaciones.md` e 
 | CA-3: Aprobación genera comprobante SHA-256 persistente | ✅ |
 | CA-4: Mecánico ve la aprobación en tiempo real | ✅ |
 | CA-5: Cotización respondida no puede modificarse | ✅ |
+
+---
+
+## Documentación y specs
+
+### Paso 1 — ICP y User Persona
+
+Definición del cliente ideal y de las personas que usan, pagan y se benefician del producto.
+
+- **Entregable Word:** [`docs/Paso-1-ICP-User-Persona.docx`](docs/Paso-1-ICP-User-Persona.docx)
+- **Vista previa PDF:** [`docs/Paso-1-ICP-User-Persona.pdf`](docs/Paso-1-ICP-User-Persona.pdf)
+- **Fuente editable:** [`docs/paso-1-icp-user-persona.md`](docs/paso-1-icp-user-persona.md)
+
+Incluye ICP, personas primaria y secundarias, mapa de empatía, Jobs to be Done, customer journey, plan de validación y guion de entrevista.
+
+### Paso 2 — SPEC de seguimiento de cotizaciones
+
+Nueva feature sobre el flujo de aprobación: aviso al cliente, recordatorios automáticos por WhatsApp, vencimiento, reapertura, panel de seguimiento y trazabilidad auditable.
+
+- **Spec:** [`.kiro/specs/seguimiento-cotizaciones.md`](.kiro/specs/seguimiento-cotizaciones.md)
+- **Entregable Word:** [`docs/Paso-2-SPEC-Seguimiento-Cotizaciones.docx`](docs/Paso-2-SPEC-Seguimiento-Cotizaciones.docx)
+- **Vista previa PDF:** [`docs/Paso-2-SPEC-Seguimiento-Cotizaciones.pdf`](docs/Paso-2-SPEC-Seguimiento-Cotizaciones.pdf)
+
+Incluye 13 criterios de aceptación (CA-1 a CA-13), North Star Metric, métricas primarias y secundarias, guardrails, modelo de datos, RPCs, riesgos y plan de implementación.
 
 ---
 
